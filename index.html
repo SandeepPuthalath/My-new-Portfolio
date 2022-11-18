@@ -611,31 +611,38 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form id="submit-form" action="" method="POST" role="form" class="php-email-form">
+
+            <form id="submit-form" onsubmit="" action=""  role="form" novalidate class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  
+                  <input type="text" name="name" class="form-control" id="name" >
+                  <small class="text-danger"></small>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+                  <input type="email" class="form-control" name="email" id="email" >
+                  <small  class="text-danger"></small>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" >
+                <small  class="text-danger"></small>
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea id="message" class="form-control" name="message" rows="10" required></textarea>
+                <textarea id="message" class="form-control" name="message" rows="10"></textarea>
+                <small  class="text-danger"></small>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button id="submit" name="submit" type="submit">Send Message</button></div>
+
             </form>
           </div>
 
@@ -681,26 +688,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbw2MsFTpt7xZ5-ZTVMm6uaWnZmKJMUzqtok822F9Er3sLtt7mssPT4p7taso1vknEuU6Q/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error")
-
-            }
-        })
-    })
-</script>
-
+ 
 </body>
 
 </html>
